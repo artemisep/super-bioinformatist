@@ -1,0 +1,8 @@
+python tool for dna methylation data analysis
+https://github.com/yupenghe/methylpy/blob/methylpy/tutorial/tutorial.md
+
+small dna methylation testing data set, the code is in R
+https://github.com/NBISweden/workshop-epigenomics-RTDs/blob/master/docs/content/tutorials/methylationSeq/Seq_Tutorial.rst
+https://github.com/NBISweden/workshop-epigenomics-RTDs/blob/master/docs/content/tutorials/methylationSeq/Seq_Tutorial.rst#datasets
+load dataset
+https://github.com/NBISweden/workshop-epigenomics-RTDs/blob/master/docs/content/tutorials/methylationSeq/Seq_Tutorial.rst#load-datasets
