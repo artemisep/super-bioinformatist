@@ -65,24 +65,9 @@ class CompetitionsController < ApplicationController
   end
 
   def run_model_and_evaluate(model_path, dataset_path)
-    require "tensorflow"
-
-    model = TensorFlow::Keras::Models.load_model(model_path.to_s)
-    dataset = CSV.read(dataset_path, headers: true).map { |row| row.to_hash }
-
-    # Prepare your dataset for evaluation
-    # ...
-
-    predictions = model.predict(dataset)
-
-    ground_truth = dataset.map { |row| row["label"] }
-    accuracy = compute_accuracy(predictions, ground_truth)
-
-    { accuracy: accuracy }
-  end
-
-  def compute_accuracy(predictions, ground_truth)
-    correct = predictions.zip(ground_truth).count { |pred, truth| pred == truth }
-    correct.to_f / ground_truth.size
+    response = HTTParty.post("http://localhost:5000/evaluate",
+                             body: { model_path: model_path.to_s, dataset_path: dataset_path.to_s }.to_json,
+                             headers: { "Content-Type" => "application/json" })
+    response.parsed_response
   end
 end
