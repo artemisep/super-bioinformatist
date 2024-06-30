@@ -1,15 +1,18 @@
-<h1><%= @competition.title %></h1>
-<p><%= @competition.description %></p>
-<p>Start Date: <%= @competition.start_date %></p>
-<p>End Date: <%= @competition.end_date %></p>
-
-<%= link_to 'Edit', edit_competition_path(@competition) %> |
-<%= link_to 'Back', competitions_path %>
-<%= link_to 'New Submission', new_competition_submission_path(@competition) %>
-
-<h2>Submissions</h2>
-<ul>
-  <% @competition.submissions.each do |submission| %>
-    <li><%= submission.file %> - <%= submission.score %></li>
-  <% end %>
-</ul>
+<div class="container container-custom">
+    <h1 class="mt-4"><%= @competition.title %></h1>
+    <p><%= @competition.description %></p>
+    <p>Start Date: <%= @competition.start_date %></p>
+    <p>End Date: <%= @competition.end_date %></p>
+  
+    <%= link_to 'Edit', edit_competition_path(@competition), class: "btn btn-warning" %>
+    <%= link_to 'Back', competitions_path, class: "btn btn-secondary" %>
+    <%= link_to 'New Submission', new_competition_submission_path(@competition), class: "btn btn-success" %>
+  
+    <h2 class="mt-4">Submissions</h2>
+    <ul class="list-group">
+      <% @competition.submissions.each do |submission| %>
+        <li class="list-group-item"><%= submission.file %> - <%= submission.score %></li>
+      <% end %>
+    </ul>
+  </div>
+  

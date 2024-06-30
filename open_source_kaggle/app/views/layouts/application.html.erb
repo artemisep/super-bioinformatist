@@ -2,15 +2,106 @@
 <html>
   <head>
     <title>OpenSourceKaggle</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= stylesheet_link_tag "https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css", integrity: "sha384-KyZXEAg3QhqLMpG8r+8fhAXLR4pNNz9c9EdBRD7CQ7A4F5Dzih7F5dE3y9bS9IUC", crossorigin: "anonymous", rel: "stylesheet" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        padding-top: 56px;
+      }
+
+      .navbar-custom {
+        background-color: #ffffff;
+        border-bottom: 1px solid #e0e0e0;
+      }
+
+      .navbar-brand, .nav-link {
+        color: #333333 !important;
+      }
+
+      .footer {
+        background-color: #ffffff;
+        border-top: 1px solid #e0e0e0;
+        padding: 20px 0;
+        text-align: center;
+      }
+
+      .container-custom {
+        max-width: 960px;
+        margin-top: 20px;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .card-custom {
+        margin-bottom: 20px;
+        border: none;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .card-custom h5 {
+        color: #333333;
+      }
+
+      .btn-primary {
+        background-color: #4285f4;
+        border-color: #4285f4;
+      }
+
+      .btn-primary:hover {
+        background-color: #357ae8;
+        border-color: #357ae8;
+      }
+
+      .list-group-item {
+        border: none;
+        padding-left: 0;
+      }
+    </style>
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="<%= root_path %>">OpenSourceKaggle</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <% if user_signed_in? %>
+              <li class="nav-item">
+                <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "nav-link" %>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <%= link_to 'Login', new_user_session_path, class: "nav-link" %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container container-custom">
+      <%= yield %>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <p class="m-0 text-center text-muted">© 2024 OpenSourceKaggle</p>
+      </div>
+    </footer>
+
+    <%= javascript_include_tag "https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js", integrity: "sha384-ka8rRucy88kQa/rF8Mw75U4h1EJ+Hid96o/8WdfWRS+2N5Nw5N7c/XDmsX3lgncx", crossorigin: "anonymous", defer: true %>
   </body>
 </html>

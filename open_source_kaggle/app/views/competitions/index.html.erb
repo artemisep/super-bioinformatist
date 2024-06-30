@@ -1,10 +1,16 @@
 <h1>Competitions</h1>
-<%= link_to 'New Competition', new_competition_path %>
-<ul>
-  <% @competitions.each do |competition| %>
-    <li>
-      <%= link_to competition.title, competition %>
-      <%= competition.description %>
-    </li>
-  <% end %>
-</ul>
+<div class="container">
+  <%= link_to 'New Competition', new_competition_path, class: "btn btn-primary mb-3" %>
+  <div class="row">
+    <% @competitions.each do |competition| %>
+      <div class="col-md-4">
+        <div class="card card-custom">
+          <div class="card-body">
+            <h5 class="card-title"><%= link_to competition.title, competition %></h5>
+            <p class="card-text"><%= competition.description %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

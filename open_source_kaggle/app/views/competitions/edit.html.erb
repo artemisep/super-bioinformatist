@@ -1,36 +1,39 @@
-<%= form_with(model: @competition, local: true) do |form| %>
-  <% if @competition.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@competition.errors.count, "error") %> prohibited this competition from being saved:</h2>
-      <ul>
-        <% @competition.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+<div class="container container-custom">
+    <%= form_with(model: @competition, local: true, class: "needs-validation", novalidate: true) do |form| %>
+      <% if @competition.errors.any? %>
+        <div id="error_explanation" class="alert alert-danger">
+          <h2><%= pluralize(@competition.errors.count, "error") %> prohibited this competition from being saved:</h2>
+          <ul>
+            <% @competition.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+  
+      <div class="mb-3">
+        <%= form.label :title, class: "form-label" %>
+        <%= form.text_field :title, class: "form-control" %>
+      </div>
+  
+      <div class="mb-3">
+        <%= form.label :description, class: "form-label" %>
+        <%= form.text_area :description, class: "form-control" %>
+      </div>
+  
+      <div class="mb-3">
+        <%= form.label :start_date, class: "form-label" %>
+        <%= form.datetime_select :start_date, class: "form-control" %>
+      </div>
+  
+      <div class="mb-3">
+        <%= form.label :end_date, class: "form-label" %>
+        <%= form.datetime_select :end_date, class: "form-control" %>
+      </div>
+  
+      <div class="mb-3">
+        <%= form.submit class: "btn btn-primary" %>
+      </div>
+    <% end %>
   </div>
-
-  <div>
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div>
-    <%= form.label :start_date %>
-    <%= form.datetime_select :start_date %>
-  </div>
-
-  <div>
-    <%= form.label :end_date %>
-    <%= form.datetime_select :end_date %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+  

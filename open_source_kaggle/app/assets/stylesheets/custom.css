@@ -1,0 +1,26 @@
+body {
+    padding-top: 56px;
+  }
+  
+  .navbar-custom {
+    background-color: #004080;
+  }
+  
+  .footer {
+    background-color: #f8f9fa;
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+  .container-custom {
+    max-width: 960px;
+  }
+  
+  .card-custom {
+    margin-bottom: 20px;
+  }
+  
+  .card-custom h5 {
+    color: #004080;
+  }
+  
