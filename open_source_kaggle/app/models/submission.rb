@@ -4,7 +4,7 @@ class Submission < ApplicationRecord
   belongs_to :user
 
   mount_uploader :file, FileUploader
+  mount_uploader :model_file, ModelUploader  # Add this line for model file upload
 
-  # Add a feedback column to store grading feedback
   attribute :feedback, :string
 end

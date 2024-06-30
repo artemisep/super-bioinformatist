@@ -1,0 +1,11 @@
+# app/views/competitions/evaluate.html.erb
+<%= form_with url: evaluate_competition_path(@competition), local: true, method: :post, html: { multipart: true } do |form| %>
+  <div>
+    <%= form.label :evaluation_dataset, "Upload Evaluation Dataset" %>
+    <%= form.file_field :evaluation_dataset %>
+  </div>
+
+  <div>
+    <%= form.submit "Evaluate" %>
+  </div>
+<% end %>
