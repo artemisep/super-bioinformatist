@@ -1,0 +1,8 @@
+<h1>Evaluation Datasets</h1>
+<%= link_to 'New Evaluation Dataset', new_competition_evaluation_dataset_path(@competition), class: "btn btn-primary" %>
+<ul>
+  <% @evaluation_datasets.each do |dataset| %>
+    <li><%= dataset.file.identifier %></li>
+  <% end %>
+</ul>
+<%= link_to 'Back', competitions_path, class: "btn btn-secondary" %>

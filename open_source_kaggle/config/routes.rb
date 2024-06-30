@@ -4,5 +4,6 @@ Rails.application.routes.draw do
 
   resources :competitions do
     resources :submissions, only: [:create, :new, :index]
+    resources :evaluation_datasets, only: [:create, :new, :index]
   end
 end

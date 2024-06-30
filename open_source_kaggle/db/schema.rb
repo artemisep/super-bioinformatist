@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_30_012035) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_30_013603) do
   create_table "competitions", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -20,6 +20,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_30_012035) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_competitions_on_user_id"
+  end
+
+  create_table "evaluation_datasets", force: :cascade do |t|
+    t.integer "competition_id", null: false
+    t.string "file"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["competition_id"], name: "index_evaluation_datasets_on_competition_id"
   end
 
   create_table "submissions", force: :cascade do |t|
@@ -47,6 +55,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_30_012035) do
   end
 
   add_foreign_key "competitions", "users"
+  add_foreign_key "evaluation_datasets", "competitions"
   add_foreign_key "submissions", "competitions"
   add_foreign_key "submissions", "users"
 end
