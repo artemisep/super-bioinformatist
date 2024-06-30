@@ -12,6 +12,7 @@
     <ul class="list-group">
       <% @competition.submissions.each do |submission| %>
         <li class="list-group-item"><%= submission.file %> - <%= submission.score %></li>
+        <li><%= submission.feedback %></li>
       <% end %>
     </ul>
   </div>

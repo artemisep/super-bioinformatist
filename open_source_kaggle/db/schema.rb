@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_30_010114) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_30_012035) do
   create_table "competitions", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -29,6 +29,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_30_010114) do
     t.float "score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "feedback"
     t.index ["competition_id"], name: "index_submissions_on_competition_id"
     t.index ["user_id"], name: "index_submissions_on_user_id"
   end

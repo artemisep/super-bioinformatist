@@ -1,3 +1,4 @@
+# app/controllers/submissions_controller.rb
 class SubmissionsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_competition
@@ -14,7 +15,9 @@ class SubmissionsController < ApplicationController
     @submission = @competition.submissions.build(submission_params)
     @submission.user = current_user
     if @submission.save
-      redirect_to competition_submissions_path(@competition), notice: "Submission was successfully created."
+      # Enqueue the grading job
+      GradeSubmissionJob.perform_later(@submission.id)
+      redirect_to competition_submissions_path(@competition), notice: "Submission was successfully created and is being graded."
     else
       render :new
     end
