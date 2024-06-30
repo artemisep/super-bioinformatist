@@ -89,7 +89,7 @@ model.compile(
 
 history = model.fit(X_train, y_train, epochs=30, batch_size=64, verbose=1, validation_split=0.2, shuffle=True)
 
-
+model.save("/tmp/dnamethyl.h5")
 
 #Model summary
 
