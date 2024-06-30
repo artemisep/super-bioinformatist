@@ -4,8 +4,8 @@
     <p>Start Date: <%= @competition.start_date %></p>
     <p>End Date: <%= @competition.end_date %></p>
   
-    <%= link_to 'Edit', edit_competition_path(@competition), class: "btn btn-warning" %>
-    <%= link_to 'Back', competitions_path, class: "btn btn-secondary" %>
+    <%= link_to 'Edit', edit_competition_path(@competition), class: "btn btn-warning me-2" %>
+    <%= link_to 'Back', competitions_path, class: "btn btn-secondary me-2" %>
     <%= link_to 'New Submission', new_competition_submission_path(@competition), class: "btn btn-success" %>
   
     <h2 class="mt-4">Submissions</h2>
