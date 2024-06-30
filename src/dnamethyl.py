@@ -33,7 +33,9 @@ from attention import Attention
 
 #Loading Data
 
-data = pd.read_excel("file:///Users/sparshg/Desktop/DNAMethyl/Project/Final_Dataset/Healthy.xlsx")
+#data = pd.read_excel("file:///Users/sparshg/Desktop/DNAMethyl/Project/Final_Dataset/Healthy.xlsx")
+data_dir = "/home/artemis/project/superbioinformatist/super-bioinformatist/resources/Final_Dataset/"
+data = pd.read_excel(data_dir + "Healthy.xlsx")
 
 X = data.iloc[:, 1:9].values
 y = data.iloc[:, 0].values
