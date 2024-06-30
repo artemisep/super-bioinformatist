@@ -1,0 +1,15 @@
+<h1><%= @competition.title %></h1>
+<p><%= @competition.description %></p>
+<p>Start Date: <%= @competition.start_date %></p>
+<p>End Date: <%= @competition.end_date %></p>
+
+<%= link_to 'Edit', edit_competition_path(@competition) %> |
+<%= link_to 'Back', competitions_path %>
+<%= link_to 'New Submission', new_competition_submission_path(@competition) %>
+
+<h2>Submissions</h2>
+<ul>
+  <% @competition.submissions.each do |submission| %>
+    <li><%= submission.file %> - <%= submission.score %></li>
+  <% end %>
+</ul>
